@@ -122,7 +122,22 @@ jQuery(function ($) {
   });
 
   //Categories Owl-carousel
-  $(".owl-carousel").owlCarousel();
+  $(".owl-carousel").owlCarousel({
+    margin:10,
+    loop:false,
+    nav:false,
+    responsive:{
+      0:{
+        items:1
+      },
+      600:{
+        items:5
+      },
+      1000:{
+        items:10
+      }
+    }
+  });
 
 
 }); // jQuery End

@@ -69,6 +69,8 @@ if (!function_exists('bootscore_setup')) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
     add_theme_support('post-thumbnails');
+    add_image_size('blog_featured', 592, 336);
+      add_image_size('blog_latest', 280, 216);
 
     /*
 		 * Switch default core markup for search form, comment form, and comments
@@ -116,39 +118,15 @@ if (!function_exists('bootscore_widgets_init')) :
 
   function bootscore_widgets_init() {
 
-    // Top Nav
-    register_sidebar(array(
-      'name' => esc_html__('Top Nav', 'bootscore'),
-      'id' => 'top-nav',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="ms-3">',
-      'after_widget' => '</div>',
-      'before_title' => '<div class="widget-title d-none">',
-      'after_title' => '</div>'
-    ));
-    // Top Nav End
-
-    // Top Nav Search
-    register_sidebar(array(
-      'name' => esc_html__('Top Nav Search', 'bootscore'),
-      'id' => 'top-nav-search',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="top-nav-search">',
-      'after_widget' => '</div>',
-      'before_title' => '<div class="widget-title d-none">',
-      'after_title' => '</div>'
-    ));
-    // Top Nav Search End
-
     // Sidebar
     register_sidebar(array(
       'name'          => esc_html__('Sidebar', 'bootscore'),
       'id'            => 'sidebar-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s card card-body mb-4 bg-light border-0">',
-      'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title card-title border-bottom py-2">',
-      'after_title'   => '</h2>',
+        'before_widget' => '<div class="col">',
+      'after_widget'  => '</div>',
+      'before_title'  => '',
+      'after_title'   => '',
     ));
     // Sidebar End
 
@@ -477,3 +455,46 @@ function wpb_add_custom_style() {
     wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/ddm.css', true );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_custom_style' );
+
+
+function cptui_register_my_cpts() {
+
+    /**
+     * Post Type: Banners.
+     */
+
+    $labels = [
+        "name" => __( "Banners", "ddmblog" ),
+        "singular_name" => __( "Banner", "ddmblog" ),
+    ];
+
+    $args = [
+        "label" => __( "Banners", "ddmblog" ),
+        "labels" => $labels,
+        "description" => "",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "has_archive" => false,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => false,
+        "rewrite" => [ "slug" => "banner", "with_front" => true ],
+        "query_var" => true,
+        "supports" => [ "title", "editor", "thumbnail" ],
+        "show_in_graphql" => false,
+        "menu_icon" => "dashicons-format-image",
+    ];
+
+    register_post_type( "banner", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts' );
+

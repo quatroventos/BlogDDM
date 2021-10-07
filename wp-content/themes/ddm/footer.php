@@ -90,10 +90,6 @@
 
 </footer>
 
-<div class="top-button position-fixed zi-1020">
-  <a href="#to-top" class="btn btn-primary shadow"><i class="fas fa-chevron-up"></i></a>
-</div>
-
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

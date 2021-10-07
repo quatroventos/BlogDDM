@@ -8,7 +8,10 @@
  * @package Bootscore
  */
 
-
+// Remover acentos
+function tirarAcentos($string){
+    return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/"),explode(" ","a A e E i I o O u U n N"),$string);
+}
 // Category Badge
 if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
@@ -19,7 +22,8 @@ if (!function_exists('bootscore_category_badge')) :
       $i = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge bg-secondary text-white text-decoration-none">' . $category->name . '</a>';
+        $catname = strtolower(tirarAcentos($category->name));
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge bg-secondary text-decoration-none '.$catname.'">' . $category->name . '</a>';
         $i++;
       }
       echo $thelist;

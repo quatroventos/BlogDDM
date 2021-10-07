@@ -1,6 +1,17 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.session--title{
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    color: #212529;
+    margin:64px 0 40px 0;
+}
+
 .navbar{
     padding:28px;
     background: rgba(255, 255, 255, 1);
@@ -81,16 +92,307 @@ body {
         }
 
 .category--list{
-    list-style: none;
+    padding:35px 0;
+    border-bottom: 1px solid #DEE2E6;
 }
-    .category--list li{
-        display: list-item;
+    .category--list .category--title{
+        float:left;
         font-style: normal;
-        font-weight: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        /* or 22px */
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        /* neutral/color-neutral-6 */
+        color: #ADB5BD;
+    }
+    .category--list .category--carousel{
+        float:left;
+        text-align:center;
+    }
+            .category--list .category--carousel a{
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 100%;
+            /* identical to box height, or 16px */
+            letter-spacing: 0.02em;
+
+            /* neutral/color-neutral-10 */
+            color: #212529;
+
+                text-decoration: none;
+        }
+
+.post--list{}
+    .post--list .post{}
+
+    .post--list .post .card{
+        /* neutral/color-white */
+        background: #FFFFFF;
+        /* neutral/color-neutral-3 */
+        border: 1px solid #E9ECEF;
+        box-sizing: border-box;
+        border-radius: 0;
+    }
+
+        .post--list .post .card.card--shadow{
+            box-shadow: 0px 8px 16px -4px rgba(0, 17, 68, 0.2);
+        }
+
+        .post--list .post .card-body{
+            padding:32px;
+        }
+
+        .post--list .post .card .post--title, .post--list .post .card .post--title a {
+            font-family: "Roboto Slab";
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 34px;
+            text-decoration: none;
+            color: #212529;
+        }
+
+        .post--list .post .card .post--date{
+
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 150%;
+            /* identical to box height, or 21px */
+
+            /* neutral/color-neutral-7 */
+            color: #868E96;
+
+            margin-top:8px;
+        }
+
+        .post--list .post .card .post--text{
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #212529;
+            margin-top:16px;
+        }
+
+        .post--list .post .card hr{
+            height: 2px;
+            margin:28px 0;
+            background: red; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /*For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* Standard syntax */
+        }
+
+        .post--list .post .card .post--read-more{
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            color: #212529;
+            text-decoration: none;
+            text-align: right;
+            display:block;
+            width: 100%;
+        }
+            .post--list .post .post--read-more .fas{
+                color: #0055FF;
+            }
+
+        .post--list .post .card a.badge{
+            padding: 8px 16px;
+            border-radius:80px;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 100%;
+            /* identical to box height, or 12px */
+            letter-spacing: 0.02em;
+        }
+            .post--list .post .card a.estrategia{
+                background:#C3FAE8 !important;
+                color:#087F5B;
+            }
+            .post--list .post .card a.marketing{
+                background:#FFDEEB !important;
+                color:#A61E4D;
+            }
+            .post--list .post .card a.performance{
+                background:#FFE8CC !important;
+                color:#D9480F;
+            }
+            .post--list .post .card a.vendas{
+                background:#F3D9FA !important;
+                color:#862E9C;
+            }
+            .post--list .post .card a.dados{
+                background:#FFF9DB !important;
+                color:#F08C00;
+            }
+
+.newsletter{
+    background: url("../img/newsletter-bg.png") center center;
+    background-size: cover;
+    padding:80px 200px;
+    color:#fff;
+}
+
+    .newsletter .newsletter--title{
+        font-family: "Roboto Slab";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    .newsletter .newsletter--text{
+        /* body/md-regular */
+        font-style: normal;
+        font-weight: 100;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+    .newsletter .newsletter--form{
+        margin-top:56px;
+    }
+
+    .newsletter .newsletter--form label{
+        font-weight: 500;
         font-size: 16px;
         line-height: 100%;
         letter-spacing: 0.02em;
-        color: #212529;
-        margin-left: 48px;
-        padding: 0;
+        color: #FFFFFF;
     }
+        .newsletter .newsletter--form label .asterisk{
+            color: #77AAFF;
+        }
+
+    .newsletter .newsletter--form input{
+        border-radius: 0;
+        border:2px solid #fff;
+        background: transparent;
+        color: #fff;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        opacity: 0.64;
+        min-height: 48px;
+    }
+
+    .newsletter .newsletter--form .btn--newsletter{
+        border:none;
+        background: linear-gradient(78.37deg, #0055FF 0%, #77AAFF 100%);
+        opacity: 1;
+    }
+
+.featured--categories{}
+
+    .featured--categories .card{
+        border-radius:0;
+        max-width: 280px;
+        min-height: 262px;
+        background: #FFFFFF;
+        border: 1px solid #E9ECEF;
+        box-sizing: border-box;
+        text-align: center;
+        padding-top:32px;
+        text-decoration:none;
+    }
+
+        .featured--categories .card:hover{
+            box-shadow: 0px 12px 24px -6px rgba(0, 17, 68, 0.24);
+        }
+
+    .featured--categories .card--title{
+        /* heading/desktop/sm-bold */
+        font-family: "Roboto Slab";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 38px;
+        text-align: center;
+        color: #212529;
+    }
+
+.latest--news{}
+
+    .latest--news .post--list .card{
+        border:none;
+    }
+        .latest--news .card:hover{
+            box-shadow: 0px 8px 16px -4px rgba(0, 17, 68, 0.2);
+        }
+
+   .latest--news .alm-btn-wrap{
+       text-align: center;
+   }
+       .latest--news .load--more, .latest--news .load--more.done{
+           margin:auto;
+           width: 228px;
+           height: 48px;
+           border: 2px solid #0055FF;
+           background: #fff;
+           box-sizing: border-box;
+           border-radius: 4px;
+           font-style: normal;
+           font-weight: bold;
+           font-size: 16px;
+           line-height: 16px;
+           letter-spacing: 0.02em;
+           color: #212529;
+       }
+            .latest--news .load--more.done {
+                opacity: .1;
+            }
+
+.top--posts{}
+
+    .top--posts .card:hover{
+        box-shadow: none;
+    }
+
+    .top--posts .card-body {
+        padding:24px 0 0 0 !important;
+    }
+
+    .top--posts .session--title{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #212529;
+    }
+
+    .top--posts .post--list .post .card .post--title, .post--list .post .card .post--title a {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 34px;
+        color: #212529;
+        margin:0;
+    }
+        .top--posts .post--list .post .card .post--title, .post--list .post .card .post--title a:hover {
+            color: #0055FF;
+        }
+
+    .top--posts hr{
+        height: 2px;
+        margin:0px 0 64px 0;
+        background: red; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /*For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* Standard syntax */
+    }
+
