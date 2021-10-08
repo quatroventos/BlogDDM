@@ -14,10 +14,6 @@ $term = get_queried_object();
 // vars
 $imagem = get_field('imagem_para_o_hero', $term);
 $descricao = get_field('descricao', $term);
-
-$author_name = get_the_author_meta( 'display_name', $post->post_author );
-$author_bio= get_the_author_meta( 'user_description', $post->post_author );
-$author_avatar = get_avatar( get_the_author_meta('user_email') , 56 );
 ?>
 
     <div id="content" class="site-content category-page container-fluid mt-4">
