@@ -3,67 +3,88 @@
 	 * Template Post Type: post
 	 */
 
-get_header();  ?>
+get_header();
 
-<div id="content" class="site-content container py-5 mt-4">
-  <div id="primary" class="content-area">
+// get the current taxonomy term
+$category = get_the_category();
+$category_name = $category[0]->cat_name;
+$category_slug = $category[0]->slug;
+?>
 
-    <!-- Hook to add something nice -->
-    <?php bs_after_primary(); ?>
+    <div id="content" class="site-content single-post container-fluid mt-4">
+        <div id="primary" class="content-area">
 
-    <?php the_breadcrumb(); ?>
+            <!-- Hook to add something nice -->
+            <?php bs_after_primary(); ?>
 
-    <div class="row">
-      <div class="col-md-8 col-xxl-9">
+            <main id="main" class="site-main">
 
-        <main id="main" class="site-main">
 
-          <header class="entry-header">
-            <?php the_post(); ?>
-            <?php bootscore_category_badge(); ?>
-            <?php the_title('<h1>', '</h1>'); ?>
-            <p class="entry-meta">
-              <small class="text-muted">
-                <?php
-                bootscore_date();
-                _e(' by ', 'bootscore');
-                the_author_posts_link();
-                bootscore_comment_count();
-                ?>
-              </small>
-            </p>
-            <?php bootscore_post_thumbnail(); ?>
-          </header>
+                <div class="hero" style="background:url('<?php the_field('imagem_para_o_hero'); ?>')">
+                    <div class="hero--content">
+                        <p class="hero--category">
+                        <div class="category-badge mb-2"><a href="<?php echo get_site_url()."/category/".$category_slug; ?>" class="badge bg-secondary text-decoration-none <?php echo $category_slug; ?>"><?php echo $category_name; ?></a></div>
+                        </p>
+                        <h1 class="hero--title"><?php the_title(); ?></h1>
+                        <p class="hero--description"><?php the_excerpt(); ?></p>
+                    </div>
+                </div>
 
-          <div class="entry-content">
-            <?php the_content(); ?>
-          </div>
 
-          <footer class="entry-footer clear-both">
-            <div class="mb-4">
-              <?php bootscore_tags(); ?>
-            </div>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <?php previous_post_link('%link'); ?>
-                </li>
-                <li class="page-item">
-                  <?php next_post_link('%link'); ?>
-                </li>
-              </ul>
-            </nav>
-          </footer>
+                <!-- Post -->
+                <div class="container latest--news">
+                    <div class="row post--list">
+                        <div class="col-md-8">
+                            <?php the_content(); ?>
+                        </div><!-- col-md-8 -->
 
-          <?php comments_template(); ?>
+                        <div class="col-md-3 offset-md-1 top--posts">
+                            <h4 class="session--title">POSTS RELACIONADOS</h4>
+                            <div class="row">
 
-        </main> <!-- #main -->
+                                <?php
+                                $args = array(
+                                    'meta_key' => 'post_views_count',
+                                    'orderby' => 'meta_value_num',
+                                    'posts_per_page' => 3
+                                );
+                                $the_query = new WP_Query($args);
+                                if ($the_query->have_posts()) : ?>
+                                <div class="row">
+                                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                        <div class="post col-md-12 mb-4">
+                                            <!-- Featured Image-->
+                                            <?php if (has_post_thumbnail())
+                                                echo '<div class="col-lg-12">' . get_the_post_thumbnail(null, 'blog_featured') . '</div>';
+                                            ?>
+                                            <div class="col card">
+                                                <div class="card-body">
+                                                    <!-- Title -->
+                                                    <h2 class="post--title">
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <?php the_title(); ?>
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    <?php endwhile; ?>
+                                    <?php endif; ?>
+                                    <?php wp_reset_postdata(); ?>
 
-      </div><!-- col -->
-      <?php get_sidebar(); ?>
-    </div><!-- row -->
+                                </div>
+                            </div>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+                            <!--sidebar-->
+                            <?php get_sidebar('Sidebar'); ?>
+
+                        </div><!-- row post--list -->
+                    </div><!--container-->
+
+            </main><!-- #main -->
+
+        </div><!-- #primary -->
+    </div><!-- #content -->
 
 <?php get_footer(); ?>

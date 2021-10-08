@@ -12,6 +12,37 @@ body {
     margin:64px 0 40px 0;
 }
 
+a.badge{
+    padding: 8px 16px;
+    border-radius:80px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 100%;
+    /* identical to box height, or 12px */
+    letter-spacing: 0.02em;
+}
+    a.badge.estrategia{
+        background:#C3FAE8 !important;
+        color:#087F5B;
+    }
+    a.badge.marketing{
+        background:#FFDEEB !important;
+        color:#A61E4D;
+    }
+    a.badge.performance{
+        background:#FFE8CC !important;
+        color:#D9480F;
+    }
+    a.badge.vendas{
+        background:#F3D9FA !important;
+        color:#862E9C;
+    }
+    a.badge.dados{
+        background:#FFF9DB !important;
+        color:#F08C00;
+    }
+
 .navbar{
     padding:28px;
     background: rgba(255, 255, 255, 1);
@@ -68,7 +99,8 @@ body {
             text-align: center;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            color:#AACCFF;
+            color:#FFF;
+            opacity: 0.5;
             margin:0 0 40px 0;
         }
         .hero--title{
@@ -202,37 +234,6 @@ body {
         }
             .post--list .post .post--read-more .fas{
                 color: #0055FF;
-            }
-
-        .post--list .post .card a.badge{
-            padding: 8px 16px;
-            border-radius:80px;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 100%;
-            /* identical to box height, or 12px */
-            letter-spacing: 0.02em;
-        }
-            .post--list .post .card a.estrategia{
-                background:#C3FAE8 !important;
-                color:#087F5B;
-            }
-            .post--list .post .card a.marketing{
-                background:#FFDEEB !important;
-                color:#A61E4D;
-            }
-            .post--list .post .card a.performance{
-                background:#FFE8CC !important;
-                color:#D9480F;
-            }
-            .post--list .post .card a.vendas{
-                background:#F3D9FA !important;
-                color:#862E9C;
-            }
-            .post--list .post .card a.dados{
-                background:#FFF9DB !important;
-                color:#F08C00;
             }
 
 .newsletter{
@@ -396,3 +397,16 @@ body {
         background: linear-gradient(to right, rgba(234, 237, 240, 1), rgba(234, 237, 240, 0)); /* Standard syntax */
     }
 
+.category-page{}
+    .category-page .main--news{
+        margin-bottom:80px;
+    }
+    .category-page .latest--news{
+        margin-top: 80px;
+    }
+
+.single-post{}
+
+    .single-post .hero{
+        color: #212529;
+    }
